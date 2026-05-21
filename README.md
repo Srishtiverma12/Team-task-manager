@@ -4,7 +4,7 @@
 A full-stack team collaboration tool for managing projects, tasks, and attendance with role-based access control.
 
 ## 🌐 Live Demo
-👉 [https://team-task-manager-ten-murex.vercel.app/](https://team-task-manager-ten-murex.vercel.app/)
+👉 [https://team-task-manager-production-c614.up.railway.app](https://team-task-manager-production-c614.up.railway.app)
 
 ## ✨ Features
 - 🔐 Authentication — Signup & Login with JWT
