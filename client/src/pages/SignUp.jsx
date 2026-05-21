@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../authContext.jsx';
 import { ArrowRight, Loader } from 'lucide-react';
 import api from '../api';
+import logo from '../assets/logo.png';
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -34,7 +35,7 @@ const Signup = () => {
     <div className="ai-auth">
       <div className="ai-auth-left">
         <div className="ai-auth-logo">
-          <div className="ai-auth-logo-mark">E</div>
+          <img src={logo} alt="Ethara AI" style={{ width: 42, height: 42, objectFit: 'contain' }} />
           <div>
             <div className="ai-auth-logo-name">Ethara AI</div>
             <div className="ai-auth-logo-sub">Team Task Manager</div>

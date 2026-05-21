@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../authContext.jsx';
 import { ArrowRight, Loader } from 'lucide-react';
 import api from '../api';
+import logo from '../assets/logo.png';
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -31,7 +32,7 @@ const Login = () => {
     <div className="ai-auth">
       <div className="ai-auth-left">
         <div className="ai-auth-logo">
-          <div className="ai-auth-logo-mark">E</div>
+          <img src={logo} alt="Ethara AI" style={{ width: 42, height: 42, objectFit: 'contain' }} />
           <div>
             <div className="ai-auth-logo-name">Ethara AI</div>
             <div className="ai-auth-logo-sub">Team Task Manager</div>
@@ -59,7 +60,6 @@ const Login = () => {
           <div className="ai-auth-card-title">Sign in</div>
           <div className="ai-auth-card-sub">Enter your credentials to continue</div>
 
-          {/* Role Selector */}
           <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
             {['Member', 'Admin'].map(r => (
               <button
