@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../authContext';
-import { LayoutDashboard, FolderKanban, LogOut, Zap, CalendarCheck } from 'lucide-react';
+import { AuthContext } from '../authContext.jsx';
+import { LayoutDashboard, FolderKanban, LogOut, CalendarCheck } from 'lucide-react';
 
 const Shell = ({ children }) => {
   const { user, logout } = useContext(AuthContext);
@@ -23,10 +23,10 @@ const Shell = ({ children }) => {
     <div className="ai-shell">
       <aside className="ai-sidebar">
         <div className="ai-brand">
-          <div className="ai-brand-mark"><Zap size={16} /></div>
+          <div className="ai-brand-mark">E</div>
           <div>
-            <div className="ai-brand-title">Team Task Manager</div>
-            <div className="ai-brand-sub">by Ethara</div>
+            <div className="ai-brand-title">Ethara AI</div>
+            <div className="ai-brand-sub">Team Task Manager</div>
           </div>
         </div>
         <nav className="ai-nav">

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../authContext';
-import { Zap, Mail, Lock, ArrowRight, Loader } from 'lucide-react';
+import { AuthContext } from '../authContext.jsx';
+import { ArrowRight, Loader } from 'lucide-react';
 import api from '../api';
 
 const Login = () => {
@@ -28,52 +28,74 @@ const Login = () => {
 
   return (
     <div className="ai-auth">
-      <div className="ai-auth-card">
-        <div className="ai-auth-head">
-          <div className="ai-auth-mark"><Zap size={22} /></div>
+      <div className="ai-auth-left">
+        <div className="ai-auth-logo">
+          <div className="ai-auth-logo-mark">E</div>
           <div>
-            <div className="ai-auth-title">Welcome</div>
-            <div className="ai-auth-sub">Sign in to your Team Task Manager workspace</div>
+            <div className="ai-auth-logo-name">Ethara AI</div>
+            <div className="ai-auth-logo-sub">Team Task Manager</div>
           </div>
         </div>
+        <div className="ai-auth-headline">
+          Welcome back<br />
+          <span>to Ethara.AI</span>
+        </div>
+        <p className="ai-auth-tagline">
+          Manage your projects, track tasks, and collaborate with your team — all in one place.
+        </p>
+        <div className="ai-auth-features">
+          {['Role-based access control', 'Real-time task tracking', 'Attendance management', 'Team collaboration'].map(f => (
+            <div key={f} className="ai-auth-feature">
+              <div className="ai-auth-feature-dot" />
+              <span>{f}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        {error && <div className="ai-alert ai-alert-bad">{error}</div>}
+      <div className="ai-auth-right">
+        <div className="ai-auth-card">
+          <div className="ai-auth-card-title">Sign in</div>
+          <div className="ai-auth-card-sub">Enter your credentials to continue</div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="ai-field">
-            <label>Email address</label>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={form.email}
-              onChange={e => setForm({ ...form, email: e.target.value })}
-              required
-            />
+          {error && <div className="ai-alert ai-alert-bad">{error}</div>}
+
+          <form onSubmit={handleSubmit}>
+            <div className="ai-field">
+              <label>Email address</label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={e => setForm({ ...form, email: e.target.value })}
+                required
+              />
+            </div>
+            <div className="ai-field">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={e => setForm({ ...form, password: e.target.value })}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="ai-btn ai-btn-primary"
+              style={{ width: '100%', justifyContent: 'center', marginTop: '4px' }}
+              disabled={loading}
+            >
+              {loading ? <Loader size={15} className="spin" /> : <ArrowRight size={15} />}
+              {loading ? 'Signing in...' : 'Sign in'}
+            </button>
+          </form>
+
+          <div className="ai-auth-foot">
+            <span>Don't have an account?</span>
+            <Link to="/signup">Create one</Link>
           </div>
-          <div className="ai-field">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={e => setForm({ ...form, password: e.target.value })}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="ai-btn ai-btn-primary"
-            style={{ width: '100%', justifyContent: 'center', marginTop: '4px' }}
-            disabled={loading}
-          >
-            {loading ? <Loader size={15} className="spin" /> : <ArrowRight size={15} />}
-            {loading ? 'Signing in...' : 'Sign in'}
-          </button>
-        </form>
-
-        <div className="ai-auth-foot">
-          <span>Don't have an account?</span>
-          <Link to="/signup">Create one</Link>
         </div>
       </div>
     </div>
