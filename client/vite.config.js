@@ -6,7 +6,7 @@ export default defineConfig({
   preview: {
     port: process.env.PORT ? parseInt(process.env.PORT) : 4173,
     host: '0.0.0.0',
-    allowedHosts: 'all',
+    allowedHosts: ['all', 'team-task-manager-production-c614.up.railway.app'],
   },
   server: {
     port: 5173,
