@@ -121,4 +121,8 @@ Team-task-manager/
 
 ## 👩‍💻 Developer
 **Srishti Verma**  
+<<<<<<< HEAD
 GitHub: [@Srishtiverma12](https://github.com/Srishtiverma12)
+=======
+GitHub: [@Srishtiverma12](https://github.com/Srishtiverma12)
+>>>>>>> 9b1d10e19c5095be271f6cba1c3c5335bad8b90d
