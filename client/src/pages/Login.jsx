@@ -76,7 +76,7 @@ const Login = () => {
                   fontFamily: 'Inter, sans-serif',
                 }}
               >
-                {r === 'Admin' ? '👑 Admin' : '👤 Member'}
+                {r === 'Admin' ? '🛡️ Admin' : '👤 Member'}
               </button>
             ))}
           </div>
