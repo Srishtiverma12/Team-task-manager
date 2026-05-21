@@ -6,6 +6,7 @@ import api from '../api';
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
+  const [role, setRole] = useState('Member');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
@@ -58,6 +59,28 @@ const Login = () => {
           <div className="ai-auth-card-title">Sign in</div>
           <div className="ai-auth-card-sub">Enter your credentials to continue</div>
 
+          {/* Role Selector */}
+          <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+            {['Member', 'Admin'].map(r => (
+              <button
+                key={r}
+                type="button"
+                onClick={() => setRole(r)}
+                style={{
+                  flex: 1, padding: '10px', borderRadius: 10,
+                  border: role === r ? '2px solid #0a2d6e' : '1px solid #dde1ed',
+                  background: role === r ? '#0a2d6e' : 'white',
+                  color: role === r ? 'white' : '#0a1940',
+                  fontWeight: 600, fontSize: 13.5,
+                  cursor: 'pointer', transition: 'all 0.15s',
+                  fontFamily: 'Inter, sans-serif',
+                }}
+              >
+                {r === 'Admin' ? '👑 Admin' : '👤 Member'}
+              </button>
+            ))}
+          </div>
+
           {error && <div className="ai-alert ai-alert-bad">{error}</div>}
 
           <form onSubmit={handleSubmit}>
@@ -88,7 +111,7 @@ const Login = () => {
               disabled={loading}
             >
               {loading ? <Loader size={15} className="spin" /> : <ArrowRight size={15} />}
-              {loading ? 'Signing in...' : 'Sign in'}
+              {loading ? 'Signing in...' : `Sign in as ${role}`}
             </button>
           </form>
 
