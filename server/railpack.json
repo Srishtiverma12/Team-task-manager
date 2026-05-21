@@ -1,0 +1,8 @@
+{
+  "build": {
+    "cmd": "npm install"
+  },
+  "deploy": {
+    "cmd": "node index.js"
+  }
+}
